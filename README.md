@@ -15,12 +15,9 @@
     
  - We here implement Advance Scene Detection Analytics across Edge and Cloud resources.The proposal uses AWS(Amazon Web Services) as a base platform for implementation.
 
- - It is an attempt to mimic the scenario described in the paper 
+ - It is an attempt to mimic the scenario described in the paper [Demonstration of a Cloud-based Software Framework for Video Analytics Application using Low-Cost IoT Devices](https://arxiv.org/abs/2010.07680).
 
- - [Demonstration of a Cloud-based Software Framework for Video Analytics Application using Low-Cost IoT Devices](https://arxiv.org/abs/2010.07680).
-
-- For more detailed explantation of paper watch this video 
-  [A Cloud-based Smart Doorbell using Low-Cost COTS  Devices](https://www.youtube.com/watch?v=42mx4Z2PDwA).
+- For more detailed explantation of paper watch this video [A Cloud-based Smart Doorbell using Low-Cost COTS  Devices](https://www.youtube.com/watch?v=42mx4Z2PDwA).
 
 
 #### AWS Services Used
@@ -77,10 +74,19 @@
 
 ### mobile app
  
-### dissemination
+### disseminations
 
-- demos
-- research papers
-- talks
+- Research Papers
+  - [A Distributed Framework to Orchestrate Video Analytics Applications](https://arxiv.org/abs/2009.09065)
+  
+  - [Demonstration of a Cloud-based Software Framework for Video Analytics Application using Low-Cost IoT Devices](https://arxiv.org/abs/2010.07680)
+
+  - [A Demonstration of Smart Doorbell Design Using Federated Deep Learning](https://arxiv.org/abs/2010.09687)
+
+- Demos
+  - For more detailed explantation of paper watch this video [A Cloud-based Smart Doorbell using Low-Cost COTS  Devices](https://www.youtube.com/watch?v=42mx4Z2PDwA).
+
+
+- Talks
 
 
