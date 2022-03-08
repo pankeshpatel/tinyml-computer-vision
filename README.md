@@ -25,11 +25,11 @@
 
 #### AWS Services Used
 
-    -  AWS Rekognition - For advance scence detection in a video
-    -  AWS Kinesis - For uploading video analytics data of edge to AWS cloud.
-    -  AWS DynamoDB - For storing video analytics data in Cloud.
-    -  AWS S3- For storing videos and frames (images) of edge at Cloud.
-    -  AWS SNS - For service notification
+ -  AWS Rekognition - For advance scence detection in a video
+ -  AWS Kinesis - For uploading video analytics data of edge to AWS cloud.
+ -  AWS DynamoDB - For storing video analytics data in Cloud.
+ -  AWS S3- For storing videos and frames (images) of edge at Cloud.
+ -  AWS SNS - For service notification
     
 
 
