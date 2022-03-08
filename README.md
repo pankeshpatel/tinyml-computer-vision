@@ -11,8 +11,15 @@
   - USPS, FedEx, DHL, Amazon Prime (Logo_Detection)
 - Detection of Packages/Couriers box
 
-### approach 1: aws-saas
+### approach 1: aws-saas for video analytics
     
+ - We here implement Advance Scene Detection Analytics across Edge and Cloud resources.The proposal uses AWS(Amazon Web Services) as a base platform for implementation.
+
+ - It is an attempt to mimic the scenario described in the paper 
+
+ - [Demonstration of a Cloud-based Software Framework for Video Analytics Application using Low-Cost IoT Devices](https://arxiv.org/abs/2010.07680).
+
+- For more detailed explantation of paper watch this video [A Cloud-based Smart Doorbell using Low-Cost COTS  Devices](https://www.youtube.com/watch?v=42mx4Z2PDwA).
 
   - `main.py`:
     This is the Main Python Program where the execution takes place. It requires `AWS_Constants.py`, `AWS_Rekognition.py`, `Capture_Video.py` python files to be in same folder. Before Running, Update your AWS - Cloud Credentials in `AWS_Constants.py` file
