@@ -4,7 +4,7 @@
 
 - Detect Face
 - Detect Pet (Cat, Dog) 
-- Detect Gun
+- Unsafe Content Detection (e.g., Gun)
 - Detect NoteWorthy Vehicles:
   - (Ambulance, Firetruck) as Truck
   - Car detection
@@ -21,6 +21,16 @@
 
 - For more detailed explantation of paper watch this video 
   [A Cloud-based Smart Doorbell using Low-Cost COTS  Devices](https://www.youtube.com/watch?v=42mx4Z2PDwA).
+
+
+#### AWS Services Used
+    -  AWS Rekognition - For advance scence detection in a video
+    -  AWS Kinesis - For uploading video analytics data of edge to AWS cloud.
+    -  AWS DynamoDB - For storing video analytics data in Cloud.
+    -  AWS S3- For storing videos and frames (images) of edge at Cloud.
+    -  AWS SNS - For service notification
+    
+
 
 #### code structure
 
