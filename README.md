@@ -24,6 +24,7 @@
 
 
 #### AWS Services Used
+
     -  AWS Rekognition - For advance scence detection in a video
     -  AWS Kinesis - For uploading video analytics data of edge to AWS cloud.
     -  AWS DynamoDB - For storing video analytics data in Cloud.
