@@ -11,7 +11,7 @@
   - USPS, FedEx, DHL, Amazon Prime (Logo_Detection)
 - Detection of Packages/Couriers box
 
-### aws-saas
+### approach 1: aws-saas
     
 
   - `main.py`:
@@ -38,22 +38,24 @@
  
 
 
-### on-device computer vision
+### approach 2: on-device computer vision
+ - Devices 
+   - [Raspberry PI 3 Model B+](https://www.amazon.in/gp/product/B07BDR5PDW/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
+   - [NVIDIA Jetson Nano](https://www.amazon.in/gp/product/B07PZHBDKT/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
+   - [Arduino Nano 33 BLE](http://store.arduino.cc/products/arduino-nano-33-ble)
 
 
 
-### classical computer vision
+### approach 3: classical computer vision
 
-
-### backend server
-
-### mobile app
- 
 
 ### comparative analysis
 
 
+### api-server
 
+### mobile app
+ 
 ### dissemination
 
 - demos
