@@ -2,14 +2,14 @@
 
 ### Use cases
 
-1. Detect Face
-2. Detect Pet (Cat, Dog) 
-3. Detect Gun
-4. Detect NoteWorthy Vehicles:
+- Detect Face
+- Detect Pet (Cat, Dog) 
+- Detect Gun
+- Detect NoteWorthy Vehicles:
   - (Ambulance, Firetruck) as Truck
   - Car detection
   - USPS, FedEx, DHL, Amazon Prime (Logo_Detection)
-5. Detection of Packages/Couriers box
+- Detection of Packages/Couriers box
 
 ### aws-saas
     
