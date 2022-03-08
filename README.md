@@ -1,16 +1,28 @@
 ## TinyML-Computer-Vision
 
+### Use cases
+
+- Detect and Rekognize Face, 
+- Detect Pet (Cat, Dog), 
+- Detect Gun, 
+- Detect NoteWorthy Vehicles:
+      - (Ambulance, Firetruck) as Truck
+      - Car, 
+      - USPS, FedEx, DHL, Amazon Prime (Logo_Detection)
+ - Detection of Packages/Couriers box
+
 ### aws-saas
+    
+
   - `main.py`:
-   This is the Main Python Program where the execution takes place. It requires `AWS_Constants.py`, `AWS_Rekognition.py`, `Capture_Video.py` python files to be in same folder. 
-   Before Running, Update your AWS - Cloud Credentials in `AWS_Constants.py` file
+    This is the Main Python Program where the execution takes place. It requires `AWS_Constants.py`, `AWS_Rekognition.py`, `Capture_Video.py` python files to be in same folder. Before Running, Update your AWS - Cloud Credentials in `AWS_Constants.py` file
 
   -  `Index_Face.py`:
-  This python Script is used to index known faces for Smart Doorbell usecase. 
-  Indexed faces will be recognized when they are at your doorstep 
+      This python Script is used to index known faces for Smart Doorbell usecase. 
+      Indexed faces will be recognized when they are at your doorstep 
 
   -  `Capture_Video.py`
-  This python script is used for capturing frames/images through camera stitching them together for making Video clip.
+     This python script is used for capturing frames/images through camera stitching them together for making Video clip.
 
   -  `AWS_Rekognition.py`
      This Module holds all the AWS - Rekognition functions required to detect the  use-cases for a smart doorbell
