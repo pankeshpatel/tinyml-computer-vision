@@ -6,9 +6,9 @@
 - Detect Pet (Cat, Dog), 
 - Detect Gun, 
 - Detect NoteWorthy Vehicles:
-      - (Ambulance, Firetruck) as Truck
-      - Car, 
-      - USPS, FedEx, DHL, Amazon Prime (Logo_Detection)
+  - (Ambulance, Firetruck) as Truck
+  - Car detection
+  - USPS, FedEx, DHL, Amazon Prime (Logo_Detection)
  - Detection of Packages/Couriers box
 
 ### aws-saas
