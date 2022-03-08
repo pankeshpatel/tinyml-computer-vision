@@ -4,7 +4,7 @@
   - `main.py`:
    This is the Main Python Program where the execution takes place. It requires `AWS_Constants.py`, `AWS_Rekognition.py`, `Capture_Video.py` python files to be in same folder. 
    Before Running, Update your AWS - Cloud Credentials in `AWS_Constants.py` file
-   
+
   -  `Index_Face.py`:
   This python Script is used to index known faces for Smart Doorbell usecase. 
   Indexed faces will be recognized when they are at your doorstep 
@@ -18,7 +18,8 @@
      Car, Packages/Couriers, Logo_Detection - USPS, FedEx, DHL, Amazon Prime
 
   -  `AWS_Constants.py`
-    This Script is used to assign your AWS Credetials  which will be will be used to initialize the AWS - Cloud services. You can get your AWS - Cloud services credentials from your account settings - > Security Credetials https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials
+    This Script is used to assign your AWS Credetials  which will be will be used to initialize the AWS - Cloud services. You can get your AWS - Cloud services credentials from your account settings  
+    [Security Credetials](https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials)
 
   -   `test-dataset-aws-rekognition`: 
     This folder contains test images that are used to test        AWS Rekognition Services.
