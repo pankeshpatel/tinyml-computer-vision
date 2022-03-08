@@ -21,6 +21,8 @@
 
 - For more detailed explantation of paper watch this video [A Cloud-based Smart Doorbell using Low-Cost COTS  Devices](https://www.youtube.com/watch?v=42mx4Z2PDwA).
 
+#### code structure
+
   - `main.py`:
     This is the Main Python Program where the execution takes place. It requires `AWS_Constants.py`, `AWS_Rekognition.py`, `Capture_Video.py` python files to be in same folder. Before Running, Update your AWS - Cloud Credentials in `AWS_Constants.py` file
 
