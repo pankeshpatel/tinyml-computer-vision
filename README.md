@@ -89,9 +89,28 @@
  - `result`:
     This folder contains object detection results for the experiments performed on Raspberry Pi and Nvidia Jetson Nano.
 
-
-
 ### approach 3: classical computer vision
+
+#### viola-jones algorithm - **haar cascade**
+
+#### code structure
+
+- `main.py`: This script contains the code for detecting the use case for a smart doorbell using HAAR Cascade
+             use-cases -> Detect Face, Pet (Cat, Dog), Gun, Noteworthy Vehicle(Ambulance, Firetruck) as Truck
+                          Car, Packages/Couriers, Logo Detection - USPS, FedEx, DHL, Amazon Prime
+
+- `CascadeClassifier`
+  - `FrontalFace_cascade.xml` -- For Face detection
+  - `Gun_cascade.xml` -- For Harmful weapon detection
+  - `Cat_cascade.xml` -- For Cat detection
+  - `Dog_cascade.xml` -- For Dog detection
+  - `Ambulance_cascade` -- For Ambulance detection
+  - `Firetruck_cascade` -- For Firetruck detection
+  - `Package_cascade.xml` -- For Package detection
+  - `Amazon_cascade.xml` -- For Amazon Prime Logo detection
+  - `DHL_cascade.xml` -- For DHL Logo detection
+  - `FedEx_cascade.xml` -- For FedEx Logo detection
+  - `Usps_cascade.xml` -- For USPS Logo detection
 
 
 ### comparative analysis
