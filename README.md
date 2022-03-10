@@ -62,6 +62,38 @@
    - [NVIDIA Jetson Nano](https://www.amazon.in/gp/product/B07PZHBDKT/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
    - [Arduino Nano 33 BLE](http://store.arduino.cc/products/arduino-nano-33-ble)
 
+- Devices
+  - [Raspberry PI 3 Model B+](https://www.amazon.in/gp/product/B07BDR5PDW/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
+  - [NVIDIA Jetson Nano](https://www.amazon.in/gp/product/B07PZHBDKT/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
+  - [Arduino Nano 33 BLE](http://store.arduino.cc/products/arduino-nano-33-ble)
+
+#### code structure
+
+ - `Gun_Detect.py`:
+    This script is used for detecting Harmful Weapon Detection (e.g. GUN) using TensorFlow Lite Interpreter.
+    - **Model Name: gun_model_2.2.tflite**
+ - `Logo_Detect.py`:
+    This script is used for detecting Logos of Courier Companies - DHL, FedEx, Amazon Prime, USPS on Delivery Vans
+    using TensorFlow Lite Interpreter.  
+    - **Model Name: LogoModel.tflite**
+ - `MobileNetSSD.py`:
+    This script is used for detecting common objects using pre-trained TFLite MobileNetSSD v2 model with TensorFlow Lite Interpreter.
+    Objects: (e.g., Person, Pet [Dog, Cat], Car, Noteworthy Vehicle [Ambulance, Firetruck] as Truck )
+    - **Model Name:MobileNetV2.tflite**
+ - `Package_Detect.py`:
+    This script is used for detecting packages/couriers delivered to your doorsteps.
+    - **Model Name: PackageModel.tflite**
+ - `test-dataset-ondevice-dl`:
+    This folder contains test images that are used to test On-Device Object Detection Models.
+ - `test-dataset-ondevice-dl`:
+    This folder contains train images that are used to custom models for package detection and logo detection (e.g., DHL, FedEx, USPS, Amazon Prime)
+ - `TFLite model`:
+    This folder contains all the TFLite models (pre-trained & custom trained) used for object detection.    
+ - `labelmap`:
+    This folder contains label_map.txt files which refers to the class names for pre-trained and custom Deep Learning Models.
+ - `result`:
+    This folder contains object detection results for the experiments performed on Raspberry Pi and Nvidia Jetson Nano.
+
 
 
 ### approach 3: classical computer vision

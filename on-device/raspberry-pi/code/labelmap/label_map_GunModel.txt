@@ -1,0 +1,7 @@
+other rifle
+mp5
+shotgun
+ar style rifle
+ak style rifle
+pistol
+holstered pistol
