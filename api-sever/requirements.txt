@@ -1,0 +1,13 @@
+# Requirements for running FastAPI backend for Smart Doorbell
+
+# Fastening light Python Framework for API build
+fastapi == 0.75.1
+
+# Fast ASGI server implementation which helps in the interaction between your application and the backend
+uvicorn == 0.17.6
+
+# Boto3: The AWS SDK for Python (Boto3) provides a Python API for AWS infrastructure services
+boto3 == 1.21.21
+
+# dotenv loads environment variables from .env file
+python-dotenv == 0.20.0  
