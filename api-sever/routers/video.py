@@ -1,4 +1,7 @@
 from fastapi import APIRouter
+from aws_helper_func import *
+from variables import *
+
 
 
 video_router = APIRouter()
@@ -8,11 +11,9 @@ def video_hello():
   return {"hello from video router"}
 
 
-# @router.get("/get-all-video-details")
-# def get_all_video_details():
-#     return {"get all video detail"}
-
-#     # response = get_all_video_details_helper()
-#     # return response
+@video_router.get("/get-all-video-details")
+def get_all_video_details():    
+    response = get_all_video_details_helper()
+    return response
    
    

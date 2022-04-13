@@ -1,4 +1,6 @@
 from fastapi import APIRouter
+from aws_helper_func import *
+
 
 
 event_router = APIRouter()
@@ -8,9 +10,7 @@ def event_hello():
   return {"hello from event router"}
 
 
-# @router.post("/get-event-details")
-# def get_event_details(event: dict):
-#    return {"event api"}
-
-    # response = get_event_details_helper(event)
-    # return response
+@event_router.post("/get-event-details")
+def get_event_details(event: dict):
+    response = get_event_details_helper(event)
+    return response
