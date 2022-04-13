@@ -1,0 +1,3 @@
+# Write docker for Nginx and API-Server (Python)
+
+# Do we need Nginx for FastAPI, as it support uvicorn??
