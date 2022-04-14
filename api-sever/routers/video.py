@@ -2,7 +2,6 @@ from fastapi import APIRouter
 from variables import *
 
 
-
 video_router = APIRouter()
 
 @video_router.get("/ping_video")
