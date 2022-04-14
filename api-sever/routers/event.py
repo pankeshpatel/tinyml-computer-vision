@@ -1,8 +1,6 @@
 from fastapi import APIRouter
 from variables import *
 
-
-
 event_router = APIRouter()
 
 @event_router.get("/ping_event")
@@ -13,9 +11,9 @@ def event_hello():
 #''' API - 10 : /get-event-details '''
 
 @event_router.post("/get-event-details")
-def get_event_details(event: dict):
+def get_event_details(request: dict):
     ddb_table = dynamodb_resource.Table(AWS_DB_TABLE2)
-    fullname = event['fullname']
+    fullname = request['fullname']
     name1 = fullname.split()
     name = ''
     for i in name1:
@@ -39,9 +37,7 @@ def get_event_details(event: dict):
             "time": time
         }
         temp.append(y)
-    print(data)
     response_code = response['ResponseMetadata']['HTTPStatusCode']
-    print('Res Code:',response_code)
     response_code = int(response_code)
     if response_code == 200:
         res_msg = {

@@ -10,13 +10,13 @@ def face_hello():
 
 # API - 1 : Add user's "fullname", "phone", "group","emailId" & "Face" '''
 @face_router.post('/add-face')
-def add_face(event: dict):
+def add_face(request: dict):
     response = {}
-    fullname = event['fullname']
-    phone = event['phone']
-    group = event['group']
-    emailId = event['emailId']
-    face = event['face']
+    fullname = request['fullname']
+    phone = request['phone']
+    group = request['group']
+    emailId = request['emailId']
+    face = request['face']
 
     response['fullname'] = fullname
     response['phone'] = phone
@@ -52,8 +52,8 @@ def add_face(event: dict):
 
 ''' API - 2 : /delete-face '''
 @face_router.post("/delete-face")
-def delete_face(event: dict):
-    fullname = event['fullname']
+def delete_face(request: dict):
+    fullname = request['fullname']
     name1 = fullname.split()
     name = ''
     for i in name1:
@@ -82,8 +82,8 @@ def delete_face(event: dict):
 
 ''' API - 9 : /get-face-details '''
 @face_router.post("/get-face-details")
-def get_face_details(event: dict):
-    fullname = event['fullname']
+def get_face_details(request: dict):
+    fullname = request['fullname']
     name1 = fullname.split()
     name = ''
     for i in name1:

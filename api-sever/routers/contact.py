@@ -13,9 +13,9 @@ def contact_hello():
 API - 11 : /edit-contact //Sample got problem
 '''
 @contact_router.post("/edit-contact")
-def edit_contact(event: dict):
-    previous_name = event['previous_name']
-    fullname = event['fullname']
+def edit_contact(request: dict):
+    previous_name = request['previous_name']
+    fullname = request['fullname']
     p_name1 = previous_name.split()
     p_name = ''
     name1 = fullname.split()
@@ -24,12 +24,12 @@ def edit_contact(event: dict):
         p_name = p_name + i
     for i in name1:
         name = name + i
-    p_email = event['emailId']
-    p_phone = event['phone']
-    p_group = event['group']
-    face = event['face']
+    p_email = request['emailId']
+    p_phone = request['phone']
+    p_group = request['group']
+    face = request['face']
     response = ddb_table.get_item(Key={'fullname': previous_name})
-    #face = event['face']
+    #face = request['face']
     if (response['ResponseMetadata']['HTTPStatusCode'] == 200):
         ddb_table.delete_item(Key={'fullname': previous_name})
         item = {}
@@ -59,9 +59,9 @@ def edit_contact(event: dict):
 API - 4 : /update-details - change/update group (i.e. friend, family, visitor)
 '''   
 @contact_router.post("/update-details")
-def update_details(event: dict):
-  fullname = event['fullname']
-  updated_group = event['group']
+def update_details(request: dict):
+  fullname = request['fullname']
+  updated_group = request['group']
   response = ddb_table.get_item(Key={'fullname': fullname})
   email = response['Item']['emailId']
   phone = response['Item']['phone']
@@ -95,8 +95,8 @@ def update_details(event: dict):
 # API - 3 : /get-data-on-group
 # '''
 @contact_router.post("/get-data-on-group")
-def get_data_on_group(event: dict):
-    group = event['group']
+def get_data_on_group(request: dict):
+    group = request['group']
     response = ddb_table.scan(
         FilterExpression=Attr('group').eq(group)
     )
@@ -112,9 +112,7 @@ def get_data_on_group(event: dict):
         image = S3_FACE_URL + name +'.jpeg'
         print(image)
         response['Items'][i]['img'] = image
-    print("end_res",response)
     response_code = response['ResponseMetadata']['HTTPStatusCode']
-    print('Res Code:',response_code)
     response_code = int(response_code)
     if response_code == 200:
         res_msg = {
