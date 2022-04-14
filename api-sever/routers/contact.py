@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from variables import *
-from schemas.users import UserUpdateDetail
+from schemas.users import UserUpdateDetailIn
 
 
 contact_router = APIRouter()
@@ -60,12 +60,13 @@ async def edit_contact(request: dict):
 API - 4 : /update-details - change/update group (i.e. friend, family, visitor)
 '''   
 @contact_router.post("/update-details", tags=["contact"])
-async def update_details(request: UserUpdateDetail):
+async def update_details(request: UserUpdateDetailIn):
   fullname = request.fullname
   updated_group = request.group
   
-  
+  #DB operation
   response = ddb_table.get_item(Key={'fullname': fullname})
+  
   email = response['Item']['emailId']
   phone = response['Item']['phone']
 
@@ -74,11 +75,13 @@ async def update_details(request: UserUpdateDetail):
   item['phone'] = phone
   item['group'] = updated_group
   item['emailId'] = email
+  
+  #DB operation
   ddb_table.put_item(Item = item)
 
   response_code = response['ResponseMetadata']['HTTPStatusCode']
   response_code = int(response_code)
-  response = ddb_table.get_item(Key={'fullname': fullname})
+  #response = ddb_table.get_item(Key={'fullname': fullname})
   
   if response_code == 200:
       res_msg = {
