@@ -1,1 +1,13 @@
 This is a folder to write test files
+
+(1)
+POST
+/update-details
+{
+"fullname" : "Shailesh Arya",
+"group" : "test101"
+}
+
+(2)
+
+(3)

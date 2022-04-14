@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from variables import *
-from schemas import UserUpdateDetailIn 
+from schemas import UserUpdateDetailRequest 
 
 
 contact_router = APIRouter()
@@ -59,7 +59,7 @@ async def edit_contact(request: dict):
 API - 4 : /update-details - change/update group (i.e. friend, family, visitor)
 '''   
 @contact_router.post("/update-details", tags=["contact"])
-async def update_details(request: UserUpdateDetailIn):
+async def update_details(request: UserUpdateDetailRequest):
   fullname = request.fullname
   updated_group = request.group
   
