@@ -1,8 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers.index import *
+from config.openapi import tags_metadata
 
-app = FastAPI()
+app = FastAPI(
+   title = "Edge AI APIs",
+   description = "REST API Server",
+   version = "0.0.1",
+   openapi_tags = tags_metadata
+)
 
 # Update list with the URL:port where the front end is running
 origins = [
@@ -18,9 +24,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/ping_main", tags=["ping"])
-def hello_world():
-  return {"main server is running"}
+# @app.get("/ping_main", tags=["ping"])
+# def hello_world():
+#   return {"main server is running"}
  
  
 app.include_router(contact_router)

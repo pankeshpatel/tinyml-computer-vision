@@ -3,9 +3,9 @@ from variables import *
 
 event_router = APIRouter()
 
-@event_router.get("/ping_event" , tags=["ping"])
-def event_hello():
-  return {"hello from event router"}
+# @event_router.get("/ping_event" , tags=["ping"])
+# def event_hello():
+#   return {"hello from event router"}
 
 
 #''' API - 10 : /get-event-details '''

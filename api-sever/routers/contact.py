@@ -5,9 +5,9 @@ from schemas.users import UserUpdateDetailIn
 
 contact_router = APIRouter()
 
-@contact_router.get("/ping_contact", tags=["ping"])
-def contact_hello():
-  return {"hello from contact router"}
+# @contact_router.get("/ping_contact", tags=["ping"])
+# def contact_hello():
+#   return {"hello from contact router"}
 
 
 '''
@@ -49,6 +49,7 @@ async def edit_contact(request: dict):
         #inserting new Image
         obj = s3_resource.Object(S3_BUCKET_NAME,file_name)
         obj.put(Body=base64.b64decode(res))
+        
     res_code = response['ResponseMetadata']['HTTPStatusCode']
     return {
         "Status":res_code,

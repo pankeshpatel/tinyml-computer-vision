@@ -4,9 +4,9 @@ from variables import *
 
 face_router = APIRouter()
 
-@face_router.get("/ping_face", tags=["ping"])
-def face_hello():
-  return {"hello from face face_router"}
+# @face_router.get("/ping_face", tags=["ping"])
+# def face_hello():
+#   return {"hello from face face_router"}
 
 # API - 1 : Add user's "fullname", "phone", "group","emailId" & "Face" '''
 @face_router.post('/add-face', tags=["face"])
