@@ -5,9 +5,7 @@ from schemas import UserUpdateDetailIn
 
 contact_router = APIRouter()
 
-# @contact_router.get("/ping_contact", tags=["ping"])
-# def contact_hello():
-#   return {"hello from contact router"}
+
 
 
 '''
