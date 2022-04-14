@@ -1,10 +1,11 @@
 from fastapi import APIRouter
 from variables import *
+from schemas.users import UserUpdateDetail
 
 
 contact_router = APIRouter()
 
-@contact_router.get("/ping_contact")
+@contact_router.get("/ping_contact", tags=["ping"])
 def contact_hello():
   return {"hello from contact router"}
 
@@ -12,8 +13,8 @@ def contact_hello():
 '''
 API - 11 : /edit-contact //Sample got problem
 '''
-@contact_router.post("/edit-contact")
-def edit_contact(request: dict):
+@contact_router.post("/edit-contact", tags=["contact"])
+async def edit_contact(request: dict):
     previous_name = request['previous_name']
     fullname = request['fullname']
     p_name1 = previous_name.split()
@@ -58,10 +59,12 @@ def edit_contact(request: dict):
 '''
 API - 4 : /update-details - change/update group (i.e. friend, family, visitor)
 '''   
-@contact_router.post("/update-details")
-def update_details(request: dict):
-  fullname = request['fullname']
-  updated_group = request['group']
+@contact_router.post("/update-details", tags=["contact"])
+async def update_details(request: UserUpdateDetail):
+  fullname = request.fullname
+  updated_group = request.group
+  
+  
   response = ddb_table.get_item(Key={'fullname': fullname})
   email = response['Item']['emailId']
   phone = response['Item']['phone']
@@ -76,6 +79,7 @@ def update_details(request: dict):
   response_code = response['ResponseMetadata']['HTTPStatusCode']
   response_code = int(response_code)
   response = ddb_table.get_item(Key={'fullname': fullname})
+  
   if response_code == 200:
       res_msg = {
       'statusCode': response_code,
@@ -94,8 +98,8 @@ def update_details(request: dict):
 # '''
 # API - 3 : /get-data-on-group
 # '''
-@contact_router.post("/get-data-on-group")
-def get_data_on_group(request: dict):
+@contact_router.post("/get-data-on-group", tags=["contact"])
+async def get_data_on_group(request: dict):
     group = request['group']
     response = ddb_table.scan(
         FilterExpression=Attr('group').eq(group)

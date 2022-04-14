@@ -4,15 +4,15 @@ from variables import *
 
 video_router = APIRouter()
 
-@video_router.get("/ping_video")
+@video_router.get("/ping_video", tags=["ping"])
 def video_hello():
   return {"hello from video router"}
 
 
 # ''' API - 12 : get-all-video-details '''
 
-@video_router.get("/get-all-video-details")
-def get_all_video_details():    
+@video_router.get("/get-all-video-details", tags=["video"])
+async def get_all_video_details():    
    response = dynamodb_client.scan(TableName = AWS_DB_TABLE2,
                    AttributesToGet=['notification','approx_capture_timestamp','s3_video_key'])
    data = {"notification": []}

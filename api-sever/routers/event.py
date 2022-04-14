@@ -3,15 +3,15 @@ from variables import *
 
 event_router = APIRouter()
 
-@event_router.get("/ping_event")
+@event_router.get("/ping_event" , tags=["ping"])
 def event_hello():
   return {"hello from event router"}
 
 
 #''' API - 10 : /get-event-details '''
 
-@event_router.post("/get-event-details")
-def get_event_details(request: dict):
+@event_router.post("/get-event-details", tags=["event"])
+async def get_event_details(request: dict):
     ddb_table = dynamodb_resource.Table(AWS_DB_TABLE2)
     fullname = request['fullname']
     name1 = fullname.split()

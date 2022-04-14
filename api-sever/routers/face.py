@@ -4,13 +4,13 @@ from variables import *
 
 face_router = APIRouter()
 
-@face_router.get("/ping_face")
+@face_router.get("/ping_face", tags=["ping"])
 def face_hello():
   return {"hello from face face_router"}
 
 # API - 1 : Add user's "fullname", "phone", "group","emailId" & "Face" '''
-@face_router.post('/add-face')
-def add_face(request: dict):
+@face_router.post('/add-face', tags=["face"])
+async def add_face(request: dict):
     response = {}
     fullname = request['fullname']
     phone = request['phone']
@@ -51,8 +51,8 @@ def add_face(request: dict):
 
 
 ''' API - 2 : /delete-face '''
-@face_router.post("/delete-face")
-def delete_face(request: dict):
+@face_router.post("/delete-face", tags=["face"])
+async def delete_face(request: dict):
     fullname = request['fullname']
     name1 = fullname.split()
     name = ''
@@ -81,8 +81,8 @@ def delete_face(request: dict):
    
 
 ''' API - 9 : /get-face-details '''
-@face_router.post("/get-face-details")
-def get_face_details(request: dict):
+@face_router.post("/get-face-details", tags=["face"])
+async def get_face_details(request: dict):
     fullname = request['fullname']
     name1 = fullname.split()
     name = ''
