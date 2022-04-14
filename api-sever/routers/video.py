@@ -4,9 +4,7 @@ from variables import *
 
 video_router = APIRouter()
 
-# @video_router.get("/ping_video", tags=["ping"])
-# def video_hello():
-#   return {"hello from video router"}
+
 
 
 # ''' API - 12 : get-all-video-details '''

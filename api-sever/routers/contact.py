@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from variables import *
-from schemas.users import UserUpdateDetailIn
+from schemas import UserUpdateDetailIn 
 
 
 contact_router = APIRouter()

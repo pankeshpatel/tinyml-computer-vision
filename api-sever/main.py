@@ -24,9 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# @app.get("/ping_main", tags=["ping"])
-# def hello_world():
-#   return {"main server is running"}
+
  
  
 app.include_router(contact_router)
