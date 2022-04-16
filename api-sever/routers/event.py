@@ -1,17 +1,18 @@
 from fastapi import APIRouter
 from variables import *
+import datetime
+
+from schemas import GetEventDetailsRequest
+
 
 event_router = APIRouter()
 
 
-
-
 #''' API - 10 : /get-event-details '''
-
 @event_router.post("/get-event-details", tags=["event"])
-async def get_event_details(request: dict):
+async def get_event_details(request: GetEventDetailsRequest):
     ddb_table = dynamodb_resource.Table(AWS_DB_TABLE2)
-    fullname = request['fullname']
+    fullname = request.fullname
     name1 = fullname.split()
     name = ''
     for i in name1:
@@ -44,6 +45,7 @@ async def get_event_details(request: dict):
         }
     else:
         res_msg={
+            'statusCode': response_code,
             'message':'Unable to process request'
         }
 

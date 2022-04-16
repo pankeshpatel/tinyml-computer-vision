@@ -1,16 +1,14 @@
 from fastapi import APIRouter
 from variables import *
-
+import datetime
 
 video_router = APIRouter()
-
-
 
 
 # ''' API - 12 : get-all-video-details '''
 
 @video_router.get("/get-all-video-details", tags=["video"])
-async def get_all_video_details():    
+async def get_all_video_details():
    response = dynamodb_client.scan(TableName = AWS_DB_TABLE2,
                    AttributesToGet=['notification','approx_capture_timestamp','s3_video_key'])
    data = {"notification": []}
@@ -35,5 +33,3 @@ async def get_all_video_details():
        'statusCode': 200,
        'Data': data
    }
-   
-   
