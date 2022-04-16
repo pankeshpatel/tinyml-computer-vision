@@ -1,21 +1,23 @@
 from fastapi import APIRouter
 from variables import *
+import base64
+from schemas import AddUserDetailsRequest, DeleteUserDetailsRequest, GetUserDetailsRequest
+
 
 
 face_router = APIRouter()
 
-
-
 # API - 1 : Add user's "fullname", "phone", "group","emailId" & "Face" '''
 @face_router.post('/add-face', tags=["face"])
-async def add_face(request: dict):
-    response = {}
-    fullname = request['fullname']
-    phone = request['phone']
-    group = request['group']
-    emailId = request['emailId']
-    face = request['face']
+async def add_face(request: AddUserDetailsRequest):
 
+    fullname = request.fullname
+    face = request.face
+    phone = request.phone
+    group = request.group
+    emailId = request.emailId
+
+    response = {}
     response['fullname'] = fullname
     response['phone'] = phone
     response['group'] = group
@@ -40,18 +42,25 @@ async def add_face(request: dict):
                           QualityFilter="AUTO",
                           DetectionAttributes=['ALL']
                           )
-    return {
-        'statusCode': 200,
-        'body': response,
-        'message': 'Data Stored Successfully!!!'
-    }
-   
+    response_code = index_response['ResponseMetadata']['HTTPStatusCode']
+    response_code = int(response_code)
+    if response_code == 200:
+        return {
+            'statusCode': 200,
+            'body': response,
+            'message': 'Data Stored Successfully!!!'
+        }
+    else:
+        res_msg = {
+            'message': 'Unable to Process Request'
+        }
+
 
 
 ''' API - 2 : /delete-face '''
 @face_router.post("/delete-face", tags=["face"])
-async def delete_face(request: dict):
-    fullname = request['fullname']
+async def delete_face(request: DeleteUserDetailsRequest):
+    fullname = request.fullname
     name1 = fullname.split()
     name = ''
     for i in name1:
@@ -76,12 +85,12 @@ async def delete_face(request: dict):
             'message': 'Unable to Process Request'
         }
     return res_msg
-   
+
 
 ''' API - 9 : /get-face-details '''
 @face_router.post("/get-face-details", tags=["face"])
-async def get_face_details(request: dict):
-    fullname = request['fullname']
+async def get_face_details(request: GetUserDetailsRequest):
+    fullname = request.fullname
     name1 = fullname.split()
     name = ''
     for i in name1:
@@ -118,8 +127,3 @@ async def get_face_details(request: dict):
             'message': 'Unable to process request!'
         }
     return res_msg
-
-
-
-
-

@@ -1,20 +1,18 @@
 from fastapi import APIRouter
 from variables import *
-from schemas import UserUpdateDetailRequest 
+from schemas import UserUpdateDetailRequest, EditContactDetailsRequest, GetUserFromGroupRequest
 
 
 contact_router = APIRouter()
-
-
 
 
 '''
 API - 11 : /edit-contact //Sample got problem
 '''
 @contact_router.post("/edit-contact", tags=["contact"])
-async def edit_contact(request: dict):
-    previous_name = request['previous_name']
-    fullname = request['fullname']
+async def edit_contact(request: EditContactDetailsRequest):
+    previous_name = request.previous_name
+    fullname = request.fullname
     p_name1 = previous_name.split()
     p_name = ''
     name1 = fullname.split()
@@ -23,10 +21,10 @@ async def edit_contact(request: dict):
         p_name = p_name + i
     for i in name1:
         name = name + i
-    p_email = request['emailId']
-    p_phone = request['phone']
-    p_group = request['group']
-    face = request['face']
+    p_email = request.emailId
+    p_phone = request.phone
+    p_group = request.group
+    face = request.face
     response = ddb_table.get_item(Key={'fullname': previous_name})
     #face = request['face']
     if (response['ResponseMetadata']['HTTPStatusCode'] == 200):
@@ -47,25 +45,32 @@ async def edit_contact(request: dict):
         #inserting new Image
         obj = s3_resource.Object(S3_BUCKET_NAME,file_name)
         obj.put(Body=base64.b64decode(res))
-        
+
     res_code = response['ResponseMetadata']['HTTPStatusCode']
-    return {
-        "Status":res_code,
-        "Message" : "User details updated successfully "
-    }
-   
+    if res_code == 200:
+        res_msg =  {
+            "statusCode": res_code,
+            "Message" : "User details updated successfully"
+        }
+    else:
+        res_msg = {
+            'statusCode': res_code,
+            'message': 'Unable to Process Request'
+        }
+    return res_msg
+
 
 '''
 API - 4 : /update-details - change/update group (i.e. friend, family, visitor)
-'''   
+'''
 @contact_router.post("/update-details", tags=["contact"])
 async def update_details(request: UserUpdateDetailRequest):
   fullname = request.fullname
   updated_group = request.group
-  
+
   #DB operation
   response = ddb_table.get_item(Key={'fullname': fullname})
-  
+
   email = response['Item']['emailId']
   phone = response['Item']['phone']
 
@@ -74,14 +79,14 @@ async def update_details(request: UserUpdateDetailRequest):
   item['phone'] = phone
   item['group'] = updated_group
   item['emailId'] = email
-  
+
   #DB operation
   ddb_table.put_item(Item = item)
 
   response_code = response['ResponseMetadata']['HTTPStatusCode']
   response_code = int(response_code)
   #response = ddb_table.get_item(Key={'fullname': fullname})
-  
+
   if response_code == 200:
       res_msg = {
       'statusCode': response_code,
@@ -95,14 +100,14 @@ async def update_details(request: UserUpdateDetailRequest):
           'message':'Unable to process request'
       }
   return res_msg
-   
-   
+
+
 # '''
 # API - 3 : /get-data-on-group
 # '''
 @contact_router.post("/get-data-on-group", tags=["contact"])
-async def get_data_on_group(request: dict):
-    group = request['group']
+async def get_data_on_group(request: GetUserFromGroupRequest):
+    group = request.group
     response = ddb_table.scan(
         FilterExpression=Attr('group').eq(group)
     )
