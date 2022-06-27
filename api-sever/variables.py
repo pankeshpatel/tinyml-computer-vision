@@ -26,6 +26,9 @@ AWS_DB_TABLE2=os.getenv("AWS_DB_TABLE2")
 AWS_RECK_SERVICE=os.getenv("AWS_RECK_SERVICE")
 AWS_RECK_COLLECTION_ID=os.getenv("AWS_RECK_COLLECTION_ID")
 
+#SNS SNS Service
+AWS_SNS_SERVICE=os.getenv("AWS_SNS_SERVICE")
+
 
 #dynamodb instance using boto3
 dynamodb_resource = boto3.resource(AWS_DYN_DATABASE, region_name = REGION_NAME, aws_access_key_id = ACCESS_KEY_ID, aws_secret_access_key = SECRET_ACCESS_KEY)
@@ -38,5 +41,15 @@ ddb_table = dynamodb_resource.Table(AWS_DB_TABLE1)
 s3 = boto3.client(AWS_S3_SERVICE, region_name = REGION_NAME, aws_access_key_id = ACCESS_KEY_ID, aws_secret_access_key = SECRET_ACCESS_KEY)
 s3_resource = boto3.resource(AWS_S3_SERVICE, region_name = REGION_NAME, aws_access_key_id = ACCESS_KEY_ID, aws_secret_access_key = SECRET_ACCESS_KEY)
 
+<<<<<<< Updated upstream
 # Rekognition Client for add face
 rekog_client = boto3.client(AWS_RECK_SERVICE, region_name = REGION_NAME, aws_access_key_id = ACCESS_KEY_ID, aws_secret_access_key = SECRET_ACCESS_KEY)
+=======
+    # Rekognition Client for add face
+    rekog_client = boto3.client(AWS_RECK_SERVICE, region_name = REGION_NAME, aws_access_key_id = ACCESS_KEY_ID, aws_secret_access_key = SECRET_ACCESS_KEY)
+
+    sns_client = boto3.client(AWS_SNS_SERVICE,  region_name = REGION_NAME, aws_access_key_id = ACCESS_KEY_ID, aws_secret_access_key = SECRET_ACCESS_KEY)
+except:
+    print("Error connectings")
+    raise HTTPException(status_code=404, detail="Can't connect")
+>>>>>>> Stashed changes

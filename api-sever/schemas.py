@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 from pydantic import BaseModel
 from typing import Optional
 
@@ -35,3 +35,32 @@ class GetUserFromGroupRequest(BaseModel):
 '''------------Schemas for event.py------------'''
 class GetEventDetailsRequest(BaseModel):
     fullname: str
+
+
+'''---------Schema for USer -------'''
+class User(BaseModel):
+    username: str
+    email: Optional[str] = None
+    full_name: Optional[str] = None
+    disabled: Optional[bool] = None
+
+class UserInDB(User):
+    hashed_password: str
+
+class Token(BaseModel):
+    status_code: int
+    access_token: str
+    token_type: str
+    message: str
+
+class TokenData(BaseModel):
+    username: Optional[str] = None
+
+
+
+'''---------Schema for SNS -------'''
+class SNSRegistrationRequest(BaseModel):
+    username: str
+    token: str
+    deviceID: int
+    authToken: str
