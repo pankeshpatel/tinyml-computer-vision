@@ -1,0 +1,6 @@
+framework module Pods_tecxlab {
+  umbrella header "Pods-tecxlab-umbrella.h"
+
+  export *
+  module * { export * }
+}
